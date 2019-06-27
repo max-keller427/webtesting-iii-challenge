@@ -3,6 +3,9 @@ import React from "react";
 import renderer from "react-test-renderer";
 import { render, fireEvent } from "@testing-library/react";
 import * as rtl from "@testing-library/react";
+import "jest-dom/extend-expect";
+
+afterEach(rtl.cleanup);
 
 import Display from "./Display";
 
@@ -37,10 +40,10 @@ describe("<Display/>", () => {
     expect(closed).toBeTruthy();
   });
 
-  xit("displays 'Locked' if the locked prop is true", () => {
+  it("displays 'Locked' if the locked prop is true", () => {
     const { getByTestId } = render(<Display locked={true} />);
 
-    const locked = getByTestId(/lock/i);
+    const locked = getByTestId(/gate/i);
 
     expect(locked).toHaveTextContent(/locked/i);
   });
