@@ -5,8 +5,10 @@ import { render, fireEvent } from "@testing-library/react";
 
 import Dashboard from "./Dashboard";
 
-describe("the dashboard component", () => {
-  it("renders without crashing", () => {
-    const renderTest = render(<Dashboard />);
+describe("<Dashboard/>", () => {
+  it.skip("matches the snapshot", () => {
+    const tree = renderer.create(<Dashboard />);
+
+    expect(tree.toJSON()).toMatchSnapshot();
   });
 });
