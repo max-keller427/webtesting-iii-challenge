@@ -38,11 +38,11 @@ describe("<Display/>", () => {
   });
 
   xit("displays 'Locked' if the locked prop is true", () => {
-    const { getByText } = render(<Display locked={true} />);
+    const { getByTestId } = render(<Display locked={true} />);
 
-    const locked = getByText(/locked/i);
+    const locked = getByTestId(/lock/i);
 
-    expect(locked);
+    expect(locked).toHaveTextContent(/locked/i);
   });
 
   it("when locked or closed use the red-led class", () => {
@@ -50,6 +50,14 @@ describe("<Display/>", () => {
 
     expect(wrapper.container.firstChild.firstChild.classList[1]).toBe(
       "red-led"
+    );
+  });
+
+  it("when unlocked or open use the green-led class", () => {
+    const wrapper = rtl.render(<Display closed={false} locked={false} />);
+
+    expect(wrapper.container.firstChild.firstChild.classList[1]).toBe(
+      "green-led"
     );
   });
 });
