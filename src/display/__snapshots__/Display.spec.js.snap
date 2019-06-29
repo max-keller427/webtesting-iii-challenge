@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Display/> matches the snapshot 1`] = `
+<div
+  className="display panel"
+>
+  <div
+    className="led green-led"
+    data-testid="gate"
+  >
+    Unlocked
+  </div>
+  <div
+    className="led green-led"
+    data-testid="lock"
+  >
+    Open
+  </div>
+</div>
+`;
+
+exports[`<Display/> matches the snapshot with changed state 1`] = `
+<div
+  className="display panel"
+>
+  <div
+    className="led red-led"
+    data-testid="gate"
+  >
+    Locked
+  </div>
+  <div
+    className="led green-led"
+    data-testid="lock"
+  >
+    Open
+  </div>
+</div>
+`;
